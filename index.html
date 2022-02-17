@@ -2,6 +2,7 @@
 <html>
 <head>
 <script src="p.js"></script>
+<div id="ip"></div>
 <script>
     var parser = new UAParser();
     var result = parser.getResult();
@@ -15,38 +16,11 @@
     document.write(result.os.version + "<br>");
     document.write(result.engine.name + "<br>");
     document.write(result.cpu.architecture + "<br>");
-
+    
+    fetch('https://ipapi.co/json/')
+        .then(d => d.json())
+        .then(d => document.querySelector('#ip').innerHTML = d.ip);
 </script>
-    
-  
-<p id="demo"></p>
-    
-<div id="ip"></div>
-
-<script>
-window.onload = getLocation();
-var x = document.getElementById("demo");
-
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(showPosition);
-  } else { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
-    
-function showPosition(position) {
-    x.innerHTML=position.coords.latitude + " " + position.coords.longitude;
-}
-    
-    
-fetch('https://ipapi.co/json/')
-  .then(d => d.json())
-  .then(d => document.querySelector('#ip').innerHTML = d.ip);
-
-    
-</script>   
- 
 </head>
 <body>
 </body>

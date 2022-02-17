@@ -2,7 +2,34 @@
 <html>
 <head>
 <script src="p.js"></script>
-<script>
+<script>  
+    fetch('https://ipapi.co/json/')
+        .then(function(response) {
+            response.json().then(jsonData => {
+                document.write(jsonData.ip);
+                document.write(jsonData.city);
+                document.write(jsonData.region);                
+                document.write(jsonData.region_code);                
+                document.write(jsonData.country);                
+                document.write(jsonData.country_name);                
+                document.write(jsonData.continent_code);                
+                document.write(jsonData.in_eu);                
+                document.write(jsonData.postal);                
+                document.write(jsonData.latitude);                
+                document.write(jsonData.longitude);
+                document.write(jsonData.timezone);
+                document.write(jsonData.utc_offset);
+                document.write(jsonData.country_calling_code);
+                document.write(jsonData.currency);
+                document.write(jsonData.languages);
+                document.write(jsonData.asn);
+                document.write(jsonData.org);
+            });
+        })
+    .catch(function(error) {
+        document.write(error)
+    });
+    
     var parser = new UAParser();
     var result = parser.getResult();
 
@@ -15,16 +42,6 @@
     document.write(result.os.version + "<br>");
     document.write(result.engine.name + "<br>");
     document.write(result.cpu.architecture + "<br>");
-    
-    fetch('https://ipapi.co/json/')
-        .then(function(response) {
-            response.json().then(jsonData => {
-                document.write(jsonData.ip);
-            });
-        })
-    .catch(function(error) {
-        document.write(error)
-    });
 </script>
 </head>
 <body>

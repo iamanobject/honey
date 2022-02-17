@@ -18,7 +18,10 @@
 
 </script>
     
+  
 <p id="demo"></p>
+    
+<div id="ip"></div>
 
 <script>
 window.onload = getLocation();
@@ -37,9 +40,10 @@ function showPosition(position) {
 }
     
     
-$.getJSON('https://json.geoiplookup.io/api?callback=?', function(data) {
-  document.write("<br>" + data.ip);
-});
+fetch('https://ipapi.co/json/')
+  .then(d => d.json())
+  .then(d => document.querySelector('#ip').innerHTML = d.ip);
+
     
 </script>   
  

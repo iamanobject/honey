@@ -35,6 +35,12 @@ function getLocation() {
 function showPosition(position) {
     x.innerHTML=position.coords.latitude + " " + position.coords.longitude;
 }
+    
+    
+$.getJSON('https://json.geoiplookup.io/api?callback=?', function(data) {
+  document.write("<br>" + data.ip);
+});
+    
 </script>   
  
 </head>

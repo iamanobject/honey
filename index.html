@@ -19,11 +19,11 @@
     fetch('https://ipapi.co/json/')
         .then(function(response) {
             response.json().then(jsonData => {
-                document.write(jsonData);
+                document.write(jsonData.ip);
             });
         })
     .catch(function(error) {
-        console.log(error)
+        document.write(error)
     });
 </script>
 </head>

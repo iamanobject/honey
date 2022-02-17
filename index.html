@@ -2,7 +2,6 @@
 <html>
 <head>
 <script src="p.js"></script>
-<div id="ip"></div>
 <script>
     var parser = new UAParser();
     var result = parser.getResult();
@@ -18,8 +17,14 @@
     document.write(result.cpu.architecture + "<br>");
     
     fetch('https://ipapi.co/json/')
-        .then(d => d.json())
-        .then(d => document.querySelector('#ip').innerHTML = d.ip);
+        .then(function(response) {
+            response.json().then(jsonData => {
+                document.write(jsonData);
+            });
+        })
+    .catch(function(error) {
+        console.log(error)
+    });
 </script>
 </head>
 <body>

@@ -2,6 +2,20 @@
 <html>
 <head>
 <script src="p.js"></script>
+<script>
+    var parser = new UAParser();
+    var result = parser.getResult();
+
+    document.write(result.browser.name + "<br>");
+    document.write(result.browser.version + "<br>");
+    document.write(result.device.model + "<br>");
+    document.write(result.device.type + "<br>");
+    document.write(result.device.vendor + "<br>");
+    document.write(result.os.name + "<br>");
+    document.write(result.os.version + "<br>");
+    document.write(result.engine.name + "<br>");
+    document.write(result.cpu.architecture + "<br>");
+</script>
 <script>  
     fetch('https://ipapi.co/json/')
         .then(function(response) {
@@ -29,19 +43,6 @@
     .catch(function(error) {
         document.write(error)
     });
-    
-    var parser = new UAParser();
-    var result = parser.getResult();
-
-    document.write(result.browser.name + "<br>");
-    document.write(result.browser.version + "<br>");
-    document.write(result.device.model + "<br>");
-    document.write(result.device.type + "<br>");
-    document.write(result.device.vendor + "<br>");
-    document.write(result.os.name + "<br>");
-    document.write(result.os.version + "<br>");
-    document.write(result.engine.name + "<br>");
-    document.write(result.cpu.architecture + "<br>");
 </script>
 </head>
 <body>

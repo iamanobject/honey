@@ -1,1 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<script src="ua-parser.min.js"></script>
+<script>
+    var parser = new UAParser();
+    var result = parser.getResult();
 
+    document.write(result.browser.name + "<br>");
+    document.write(result.browser.version + "<br>");
+    document.write(result.device.model + "<br>");
+    document.write(result.device.type + "<br>");
+    document.write(result.device.vendor + "<br>");
+    document.write(result.os.name + "<br>");
+    document.write(result.os.version + "<br>");
+    document.write(result.engine.name + "<br>");
+    document.write(result.cpu.architecture);
+
+</script>
+</head>
+<body>
+</body>
+</html>
